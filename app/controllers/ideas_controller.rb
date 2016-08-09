@@ -1,5 +1,9 @@
 class IdeasController < ApplicationController
 	def new
-		@name ="Saygın"
+		@name = "Saygin"
+	end
+
+	def index
+		@ideas = Idea.all
 	end
 end
