@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.create(title: "Genel", desc: 'Genel kategorimiz burasıdır.', color: 'red')
+Category.create(title: "RoR", desc: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.', color: 'green')
+
+Idea.create(title: 'Züper Fikir', description: 'Über Züper Fikir')
+Idea.create(title: 'Süper Fikir!', description: 'Bence bilişim terimleri tekrar düzenlensin.')
+Idea.create(title: 'Deneme', description: 'Test descriptionım.')
