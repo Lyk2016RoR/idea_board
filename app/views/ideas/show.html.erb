@@ -8,3 +8,11 @@ Display Idea<br /><br />
 <%= link_to "Back to idea list", ideas_path %>
 <br/>
 <%= link_to "Edit idea", edit_idea_path(@idea) %>
+
+<form method="post" action="<%= idea_path(@idea) %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" name="button">Sil</button>
+</form>
+
+<%= link_to "Sil", idea_path(@idea), method: :delete %>
