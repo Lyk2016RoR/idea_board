@@ -7,11 +7,5 @@
 <% end %>
 
 <form action="<%= ideas_path %>" method="post">
-<input type="text" name="title" value="">
-<br>
-<textarea name="description" rows="8" cols="40"></textarea>
-<br>
-<input type="text" name="planned_to">
-<br>
-<button type="submit" name="button">Gönder</button>
+  <%= render "form" %>
 </form>

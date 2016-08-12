@@ -12,7 +12,7 @@ class IdeasController < ApplicationController
 	end
 
 	def create
-		@idea = Idea.new(strong_params)
+		@idea = Idea.new(idea_params)
 
 		if @idea.save
 			redirect_to idea_path(@idea)
@@ -21,7 +21,21 @@ class IdeasController < ApplicationController
 		end
 	end
 
-	def strong_params
+	def edit
+		@idea = Idea.find(params[:id])
+	end
+
+	def update
+		@idea = Idea.find(params[:id])
+
+		if @idea.update(idea_params)
+			redirect_to idea_path(@idea)
+		else
+			render :edit
+		end
+	end
+
+	def idea_params
 		params.permit(:title, :description, :planned_to)
 	end
 end
