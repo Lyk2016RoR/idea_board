@@ -1,10 +1,14 @@
-Title:<input type="text" name="title" value="<%= @idea.title %>">
-<br>
-Description:<textarea name="description" rows="8" cols="40">
-    <%= @idea.description %>
-</textarea>
-<br>
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-Planned To:<input type="text" name="planned_to" value="<%= @idea.planned_to %>">
-<br><br>
-<button type="submit" name="button">Gönder</button>
+<%= form_for @idea, method: :post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: 'title', class: "form-control input-sm" %><br>
+  <br>
+  <%= f.label :description %>
+  <br>
+  <%= f.text_area :description, placeholder: "description", rows: 10 %><br>
+  <br>
+  <%= f.label :planned_to %>
+  <br>
+  <%= f.date_select :planned_to, placeholder: 'date' %><br>
+  <br>
+  <%= f.submit 'Gonder' %>
+<% end %>

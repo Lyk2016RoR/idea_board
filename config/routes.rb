@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post 'ideas', to: 'ideas#create'
   get 'ideas/:id/edit', to: 'ideas#edit', as: "edit_idea"
   put 'ideas/:id', to: 'ideas#update'
+  patch 'ideas/:id', to: 'ideas#update'
   delete 'ideas/:id', to: 'ideas#destroy'
 end
