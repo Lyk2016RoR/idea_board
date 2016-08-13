@@ -3,7 +3,5 @@ class Category < ApplicationRecord
     message: "kırmızı mavi yeşil olabilir"}
   validates :title, uniqueness: true
 
-  def ideas
-    Idea.where(category_id: id)
-  end
+  has_many :ideas
 end

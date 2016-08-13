@@ -21,7 +21,5 @@ class Idea < ApplicationRecord
 		end
 	end
 
-  def category
-		Category.find(category_id)
-  end
+	belongs_to :category
 end
