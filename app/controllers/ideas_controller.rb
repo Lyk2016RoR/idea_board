@@ -3,6 +3,8 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
+    @categories = Category.all.collect {|c| [c.title, c.id ] }
+
   end
 
   def index
@@ -19,6 +21,7 @@ class IdeasController < ApplicationController
       flash[:success] = 'Islem basariyla tamamlandi'
       redirect_to idea_path(@idea)
     else
+      @categories = Category.all.collect {|c| [c.title, c.id ] }
       render :new
     end
   end
@@ -47,6 +50,6 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :planned_to)
+    params.require(:idea).permit(:title, :description, :planned_to, :category_id)
   end
 end

@@ -10,5 +10,12 @@
   <br>
   <%= f.date_select :planned_to, placeholder: 'date' %><br>
   <br>
+
+  <%= f.select :category_id, @categories %>
+
+   <br />
+   <br />
+   <br />
+
   <%= f.submit 'Gonder' %>
 <% end %>
