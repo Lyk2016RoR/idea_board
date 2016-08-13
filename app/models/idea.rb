@@ -17,7 +17,11 @@ class Idea < ApplicationRecord
 
 	def check_planned_to
 		if planned_to.present? && planned_to < Date.today
-			errors.add(:planned_to, "gecmise planlanamaz") 
+			errors.add(:planned_to, "gecmise planlanamaz")
 		end
 	end
+
+  def category
+		Category.find(category_id)
+  end
 end

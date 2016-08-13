@@ -1,8 +1,9 @@
 Display Idea<br /><br />
 
-<b>ID </b><%= @idea.id %><br />
-<b>Title </b><%= @idea.title %><br />
-<b>Description </b><%= @idea.description %><br />
+<b>ID:  </b><%= @idea.id %><br />
+<b>Title:  </b><%= @idea.title %><br />
+<b>Description:  </b><%= @idea.description %><br />
+<b>Category: </b><%= @idea.category.title %>
 
 <br/><br/>
 <%= link_to "Back to idea list", ideas_path %>

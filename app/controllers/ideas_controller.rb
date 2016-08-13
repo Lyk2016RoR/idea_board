@@ -3,8 +3,7 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
-    @categories = Category.all.collect {|c| [c.title, c.id ] }
-
+    load_categories
   end
 
   def index
@@ -21,12 +20,13 @@ class IdeasController < ApplicationController
       flash[:success] = 'Islem basariyla tamamlandi'
       redirect_to idea_path(@idea)
     else
-      @categories = Category.all.collect {|c| [c.title, c.id ] }
+      load_categories
       render :new
     end
   end
 
   def edit
+    load_categories
   end
 
   def update
@@ -34,6 +34,7 @@ class IdeasController < ApplicationController
     if @idea.update(idea_params)
       redirect_to idea_path(@idea)
     else
+      load_categories
       render :edit
     end
   end
@@ -44,6 +45,10 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def load_categories
+    @categories = Category.all.collect {|c| [c.title, c.id ] }
+  end
 
   def set_idea
     @idea = Idea.find(params[:id])
