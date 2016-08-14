@@ -1,15 +1,148 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IdeaBoard</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,latin-ext" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav id="navbar-top" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Fikrim Geldi!</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Ana Sayfa</a></li>
+            <li><a href="#">Hakkında</a></li>
+            <li><a href="#">İletişim</a></li>
+            <li><a href="#">SSS</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <% if params[:controller] == 'ideas' and params[:action] == 'index' %>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img class="first-slide" src="assets/images/slider/slide_1.jpg" alt="First slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Lorem Ipsum Nedir?</h1>
+                  <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Hemen Kayıt Ol!</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="second-slide" src="assets/images/slider/slide_2.jpg" alt="Second slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Nereden Gelir?</h1>
+                  <p>Yaygın inancın tersine, Lorem Ipsum rastgele sözcüklerden oluşmaz. Kökleri M.Ö. 45 tarihinden bu yana klasik Latin edebiyatına kadar uzanan 2000 yıllık bir geçmişi vardır. </p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Hemen Kayıt Ol</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <img class="third-slide" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNUX5fwHwAEbwI2Qne/HAAAAABJRU5ErkJggg==" alt="Third slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>Neden Kullanırız?</h1>
+                  <p>Yinelenen bir sayfa içeriğinin okuyucunun dikkatini dağıttığı bilinen bir gerçektir. Lorem Ipsum kullanmanın amacı, sürekli 'buraya metin gelecek, buraya metin gelecek' yazmaya kıyasla daha dengeli bir harf dağılımı sağlayarak okunurluğu artırmasıdır.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Hemen Kayıt Ol!</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="fa fa-angle-left fa-2x" aria-hidden="true"></span>
+            <span class="sr-only">Önceki</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="fa fa-angle-right fa-2x" aria-hidden="true"></span>
+            <span class="sr-only">Sonraki</span>
+          </a>
+        </div><!-- /.carousel -->
+    <% end %>
+
+    <div id="main_container" class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <%= yield %>
+            </div>
+            <div id="navbar-right" class="col-md-3">
+              <div class="nav-section">
+                <h3>Arama Yap</h3>
+                  <form action="" class="search-form">
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control"  placeholder="Fikir Bul!" >
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                  </form>
+              </div>
+              <div id="categories" class="nav-section">
+                <h3>Kategoriler</h3>
+                <a href="#"><i class="fa fa-angle-right"></i> Kategori 1</a>
+                <a href="#"><i class="fa fa-angle-right"></i> Kategori 2</a>
+                <a href="#"><i class="fa fa-angle-right"></i> Kategori 3</a>
+                <a href="#"><i class="fa fa-angle-right"></i> Kategori 4</a>
+              </div>
+              <div id="tags" class="nav-section">
+                <h3>Etiketler</h3>
+                <a href="#" class="label label-default">Etiket 1</a>
+                <a href="#" class="label label-default">Etiket 2</a>
+                <a href="#" class="label label-default">Etiket 3</a>
+                <a href="#" class="label label-default">Etiket 4</a>
+                <a href="#" class="label label-default">Etiket 5</a>
+                <a href="#" class="label label-default">Etiket 6</a>
+                <a href="#" class="label label-default">Etiket 7</a>
+                <a href="#" class="label label-default">Etiket 4</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <%= render "flash" %>
-    <%= yield %>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="pull-left">
+          <p class="text-muted">Bu tasarım GPL v3 Lisansıyla Kamuya Hediye Edilmiştir :)</p>
+        </div>
+        <div class="pull-right">
+          <p class="text-muted">
+            <a href="#"> <i class="fa fa-facebook-square fa-2x"></i> </a>
+            <a href="#"> <i class="fa fa-twitter-square fa-2x"></i> </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
+
   </body>
 </html>

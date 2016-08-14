@@ -1,3 +1,180 @@
-// Place all the styles related to the Ideas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.carousel {
+    height: 400px;
+}
+.carousel-caption {
+    z-index: 10;
+}
+.carousel .item {
+    height: 400px;
+    background-color: #777;
+}
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 400px;
+}
+.carousel .item:nth-of-type(even) .carousel-caption {
+    border-top-left-radius: 20% 60%;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 20% 60%;
+}
+.carousel .item:nth-last-of-type(odd) .carousel-caption {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20% 60%;
+    border-bottom-left-radius: 20% 60%;
+    border-bottom-right-radius: 5px;
+}
+.carousel-caption {
+    background: rgba(0, 0, 0, .7);
+    padding: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 5px #333;
+}
+.carousel-caption h1 {
+    margin: 5px 0;
+    font-size: 24px;
+    color: #c0392b;
+    text-shadow: 0 0 2px #333;
+}
+.carousel-caption p {
+    text-shadow: 0 0 2px #333;
+}
+.carousel-caption p + p {
+    margin-bottom: 0;
+}
+.carousel a.carousel-control {
+    padding-top: 190px;
+}
+.panel-heading span {
+    font-size: 14px;
+}
+.panel-heading i.fa {
+    margin-right: 5px;
+}
+.panel-body p {
+    text-indent: 15px;
+}
+.panel-footer .pull-left p {
+    line-height: 34px;
+    margin: 0;
+}
+.panel-footer .pull-left p a {
+    text-decoration: none;
+    color: #333;
+}
+.panel-footer .pull-left p span + span {
+    margin-left: 5px;
+}
+.panel-heading span.label {
+    cursor: pointer;
+    text-shadow: 0 0 2px #444;
+}
+.panel-heading span.label:hover {
+    text-shadow: 0 0 3px #333;
+}
+#idea_content {} #idea_content .page-header {
+    margin: 0;
+    margin-bottom: 20px;
+}
+#idea_content .page-header h1 {
+    margin: 0;
+    line-height: 41px;
+    border-left: 5px solid #2c3e50;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding-left: 10px;
+    text-shadow: 0 0 3px #ccc;
+}
+#idea_content .page-header span {
+    font-size: 12px;
+    line-height: 41px;
+}
+#idea_content .page-body p {
+    text-indent: 10px;
+}
+.idea-author .row {
+    margin-right: 0;
+    margin-left: 0;
+    padding: 10px 0;
+}
+.idea-author img {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 3px #aaa;
+}
+.idea-author a {
+    color: #333;
+}
+.idea-author a:hover {
+    text-shadow: none;
+}
+.comments {} .idea-author .page-header h3,
+.comments .page-header h3 {
+    margin: 0;
+    margin-top: 30px;
+    line-height: 41px;
+    border-left: 5px solid #2c3e50;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding-left: 10px;
+    text-shadow: 0 0 3px #ccc;
+}
+.idea-author .page-header {
+    margin-bottom: 0 !important;
+}
+.comments .media {} .comments h4.add_new {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+h4.media-heading a {
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+h4.media-heading a:hover {
+    text-shadow: 0 0 2px #999;
+}
+.comments .media .media-body p {
+    font-size: 13px;
+    text-indent: 10px;
+}
+h4 a,
+h3 a,
+h4 a:focus,
+h3 a:focus {
+    color: #333;
+    cursor: pointer;
+}
+h4 a:hover,
+h3 a:hover {
+    text-shadow: 0 0 3px #ccc;
+    color: #333;
+}
+#post-info .media-body p {
+    text-indent: 0;
+}
+#post-info .media-body p a {
+    color: #333;
+    cursor: pointer;
+}
+#post-info .media-body p a:hover {
+    text-shadow: 0 0 3px #ddd;
+}
+#post-tags a {
+    padding: 5px;
+}
+#post-tags a:before {
+    content: '#';
+}
+.rating button {
+    font-size: 12px;
+}
+@media (min-width: 768px) {
+    .carousel-caption p {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+}
