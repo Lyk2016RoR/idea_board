@@ -5,6 +5,22 @@ Display Idea<br /><br />
 <b>Description:  </b><%= @idea.description %><br />
 <b>Category: </b><%= @idea.category.title %>
 
+<br /><br /><br />
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Comments
+  </div>
+  <div class="panel-body">
+
+    <% @idea.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+    <% end %>
+
+  </div>
+</div>
+
+
 <br/><br/>
 <%= link_to "Back to idea list", ideas_path %>
 <br/>
