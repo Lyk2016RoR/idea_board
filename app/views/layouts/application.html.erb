@@ -24,9 +24,13 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Ana Sayfa</a></li>
-            <li><a href="#">Hakkında</a></li>
-            <li><a href="#">İletişim</a></li>
-            <li><a href="#">SSS</a></li>
+            <% if current_user.present? %>
+              <li><a href="#"><%= current_user.email %></a></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <li><%= link_to "Register", new_user_registration_path %></li>
+            <% end %>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
