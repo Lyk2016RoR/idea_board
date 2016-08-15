@@ -30,6 +30,9 @@ RSpec.describe Idea, type: :model do
       @idea = build :idea, planned_to: Date.yesterday
       expect(@idea).not_to be_valid
     end
-    it "is not valid without category"
+    it "is not valid without category" do
+      @idea = build :idea, category: nil
+      expect(@idea).not_to be_valid
+    end
   end
 end
