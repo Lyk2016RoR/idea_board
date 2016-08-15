@@ -37,7 +37,10 @@ Display Idea<br /><br />
 
 <br/><br/>
 <%= link_to "Back to idea list", ideas_path %>
-<br/>
-<%= link_to "Edit idea", edit_idea_path(@idea) %>
-<br/>
-<%= link_to "Sil", idea_path(@idea), method: :delete %>
+
+<% if current_user.present? and current_user.id == @idea.user_id %>
+  <br/>
+  <%= link_to "Edit idea", edit_idea_path(@idea) %>
+  <br/>
+  <%= link_to "Sil", idea_path(@idea), method: :delete %>
+<% end %>

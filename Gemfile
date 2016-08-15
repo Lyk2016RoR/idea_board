@@ -44,8 +44,8 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-commands-rspec'
+  #gem 'spring'
+  #gem 'spring-commands-rspec'
 end
 
 group :test do

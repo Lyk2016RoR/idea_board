@@ -23,7 +23,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Ana Sayfa</a></li>
+            <li class="active">
+                <%= link_to "New Idea", new_idea_path %>
+            </li>
             <% if current_user.present? %>
               <li><a href="#"><%= current_user.email %></a></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

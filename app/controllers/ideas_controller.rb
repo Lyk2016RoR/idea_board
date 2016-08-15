@@ -1,5 +1,7 @@
 class IdeasController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_idea, only: [:show, :update, :edit, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def new
     @idea = Idea.new
@@ -14,7 +16,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    @idea = current_user.ideas.new(idea_params)
 
     if @idea.save
       flash[:success] = 'Islem basariyla tamamlandi'
@@ -45,6 +47,10 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def authorize_user!
+    redirect_to root_path, notice: "Not authorized" unless @idea.user_id == current_user.id
+  end
 
   def load_categories
     @categories = Category.all.collect {|c| [c.title, c.id ] }
