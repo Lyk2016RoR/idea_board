@@ -11,6 +11,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @comment = @idea.comments.new
   end
 
   def create

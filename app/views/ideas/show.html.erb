@@ -21,6 +21,20 @@ Display Idea<br /><br />
 </div>
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Send a new comment
+  </div>
+  <div class="panel-body">
+    <%= form_for [@idea, @comment] do |f| %>
+      <%= f.text_area :body, rows: 5 %><br>
+      <%= f.submit 'Send' %>
+    <% end %>
+  </div>
+</div>
+
+
+
 <br/><br/>
 <%= link_to "Back to idea list", ideas_path %>
 <br/>
