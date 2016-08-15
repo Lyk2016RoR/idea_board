@@ -1,7 +1,9 @@
 <% if !flash.empty? %>
   <div id="flash">
     <% flash.keys.each do |k| %>
-      <div class="<%= k %>">
+      <div class="alert alert-warning" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
         <%= flash[k] %>
       </div>
     <% end %>

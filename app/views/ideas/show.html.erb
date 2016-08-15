@@ -26,7 +26,7 @@ Display Idea<br /><br />
     Send a new comment
   </div>
   <div class="panel-body">
-    <%= form_for [@idea, @comment] do |f| %>
+    <%= form_for [@idea, @idea.comments.build] do |f| %>
       <%= f.text_area :body, rows: 5 %><br>
       <%= f.submit 'Send' %>
     <% end %>

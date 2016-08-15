@@ -32,6 +32,8 @@
       </div>
     </nav>
 
+
+
     <% if params[:controller] == 'ideas' and params[:action] == 'index' %>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
@@ -84,6 +86,9 @@
     <% end %>
 
     <div id="main_container" class="container">
+
+          <%= render "flash" %>
+
           <div class="row">
             <div class="col-md-9">
               <%= yield %>
@@ -127,8 +132,6 @@
             </div>
           </div>
         </div>
-
-    <%= render "flash" %>
 
     <footer class="footer">
       <div class="container">
