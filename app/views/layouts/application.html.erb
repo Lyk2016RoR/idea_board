@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Fikrim Geldi!</a>
+          <%= link_to "Fikrim Geldi!", root_path, class: "navbar-brand" %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -104,10 +104,14 @@
               </div>
               <div id="categories" class="nav-section">
                 <h3>Kategoriler</h3>
-                <a href="#"><i class="fa fa-angle-right"></i> Kategori 1</a>
-                <a href="#"><i class="fa fa-angle-right"></i> Kategori 2</a>
-                <a href="#"><i class="fa fa-angle-right"></i> Kategori 3</a>
-                <a href="#"><i class="fa fa-angle-right"></i> Kategori 4</a>
+
+                <% @sidebar_categories.each do |c| %>
+                    <%= link_to category_path(c) do %>
+                        <i class="fa fa-angle-right"></i>
+                        <%= c.title %>
+                    <% end %>
+                <% end %>
+
               </div>
               <div id="tags" class="nav-section">
                 <h3>Etiketler</h3>
