@@ -8,39 +8,9 @@ Display Idea<br /><br />
 
 <br /><br /><br />
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    Comments
-  </div>
-  <div class="panel-body">
-
-    <% @idea.comments.each do |comment| %>
-      <small><%= comment.user.email %> says:</small>
-      <p>
-        <%= comment.body %>
-        <% if current_user.present? && comment.user_id == current_user.id %>
-          <small><%= link_to "Delete", idea_comment_path(@idea, comment), method: :delete %></small>
-        <% end %>
-      </p>
-    <% end %>
-
-  </div>
-</div>
-
-<% if current_user.present? %>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      Send a new comment
-    </div>
-    <div class="panel-body">
-      <%= form_for [@idea, @idea.comments.build] do |f| %>
-        <%= f.text_area :body, rows: 5 %><br>
-        <%= f.submit 'Send' %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
+<%= render 'votes/form' %>
+<%= render 'comments/comment_list' %>
+<%= render 'comments/form' %>
 
 <br/><br/>
 <%= link_to "Back to idea list", ideas_path %>

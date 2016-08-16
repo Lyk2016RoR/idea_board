@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :ideas
   has_many :comments, dependent: :destroy
+  has_many :votes
 
   before_destroy :assign_to_first_user
 

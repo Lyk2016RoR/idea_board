@@ -1,0 +1,13 @@
+<% if current_user.present? %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Send a new comment
+    </div>
+    <div class="panel-body">
+      <%= form_for [@idea, @idea.comments.build] do |f| %>
+        <%= f.text_area :body, rows: 5 %><br>
+        <%= f.submit 'Send' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

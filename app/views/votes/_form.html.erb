@@ -1,0 +1,11 @@
+<%= form_for [@idea, @idea.votes.build] do |f| %>
+  <% 5.times do |i| %>
+    <%= f.radio_button :rating, i+1 %>
+    <% (i+1).times do %>
+      <i class='fa fa-star'></i>
+    <% end %>
+    <br />
+  <% end %>
+
+  <%= f.submit "Vote", class: "btn btn-sm btn-primary" %>
+<% end %>
