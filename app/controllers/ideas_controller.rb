@@ -13,6 +13,13 @@ class IdeasController < ApplicationController
   end
 
   def show
+    if current_user
+      if @idea.votes.where(user_id: current_user.id).any?
+        @vote = @idea.votes.where(user_id: current_user.id).first
+      else
+        @vote = @idea.votes.build
+      end
+    end
   end
 
   def create

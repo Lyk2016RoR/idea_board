@@ -1,4 +1,4 @@
-<%= form_for [@idea, @idea.votes.build] do |f| %>
+<%= form_for [@idea, @vote] do |f| %>
   <% 5.times do |i| %>
     <%= f.radio_button :rating, i+1 %>
     <% (i+1).times do %>
