@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_idea
 
   def create
     @comment = @idea.comments.new(comment_params)
+    @comment.user = current_user
+
     if @comment.save
       redirect_to @idea, notice: "Comment was saved"
     else
