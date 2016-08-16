@@ -10,6 +10,11 @@ Display Idea<br /><br />
 <br /><br /><br />
 
 <%= render 'votes/form' %>
+
+<% @idea.voters.each do |u| %>
+  <%= u.email %><br />
+<% end %>
+
 <%= render 'comments/comment_list' %>
 <%= render 'comments/form' %>
 

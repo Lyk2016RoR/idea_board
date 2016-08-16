@@ -18,6 +18,7 @@ class Idea < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user
   has_many :votes
+  has_many :voters, through: :votes, source: :user
 
   def average_rating
     votes.average(:rating).to_s
