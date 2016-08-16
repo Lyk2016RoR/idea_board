@@ -43,7 +43,7 @@ class IdeasController < ApplicationController
 
   def destroy
     @idea.destroy
-    redirect_to ideas_path
+    redirect_to ideas_path, notice: "Idea was deleted"
   end
 
   private
