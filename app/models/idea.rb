@@ -19,6 +19,10 @@ class Idea < ApplicationRecord
   belongs_to :user
   has_many :votes
 
+  def average_rating
+    votes.average(:rating).to_s
+  end
+
   private
 
     def check_planned_to
