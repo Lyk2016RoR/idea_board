@@ -6,6 +6,8 @@ Display Idea<br /><br />
 <b>Category: </b><%= @idea.category.title %><br /><br />
 <b>User: </b><%= @idea.user.email %> | <%= @idea.user.id %><br />
 <b>Average Rating: </b><%= @idea.average_rating %><br />
+<b>Tags: </b><%= @idea.tags.collect {|x| x.name }.join(", ")
+ %><br />
 
 <br /><br /><br />
 

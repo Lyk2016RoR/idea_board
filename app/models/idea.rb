@@ -19,6 +19,7 @@ class Idea < ApplicationRecord
   belongs_to :user
   has_many :votes
   has_many :voters, through: :votes, source: :user
+  has_and_belongs_to_many :tags
 
   def average_rating
     votes.average(:rating).to_s

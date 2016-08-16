@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
-    load_categories
+    load_form_data
   end
 
   def index
@@ -29,13 +29,13 @@ class IdeasController < ApplicationController
       flash[:success] = 'Islem basariyla tamamlandi'
       redirect_to idea_path(@idea)
     else
-      load_categories
+      load_form_data
       render :new
     end
   end
 
   def edit
-    load_categories
+    load_form_data
   end
 
   def update
@@ -43,7 +43,7 @@ class IdeasController < ApplicationController
     if @idea.update(idea_params)
       redirect_to idea_path(@idea)
     else
-      load_categories
+      load_form_data
       render :edit
     end
   end
@@ -59,8 +59,9 @@ class IdeasController < ApplicationController
     redirect_to root_path, notice: "Not authorized" unless @idea.user_id == current_user.id
   end
 
-  def load_categories
+  def load_form_data
     @categories = Category.all.collect {|c| [c.title, c.id ] }
+    @tags = Tag.all
   end
 
   def set_idea
@@ -68,6 +69,8 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:title, :description, :planned_to, :category_id)
+    params.require(:idea).permit(:title, :description, :planned_to, :category_id, tag_ids: [])
   end
+
+
 end
