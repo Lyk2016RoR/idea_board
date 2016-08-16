@@ -14,8 +14,13 @@ Display Idea<br /><br />
   <div class="panel-body">
 
     <% @idea.comments.each do |comment| %>
-      <small><%= comment.user.email %> says:</small> 
-      <p><%= comment.body %></p>
+      <small><%= comment.user.email %> says:</small>
+      <p>
+        <%= comment.body %>
+        <% if current_user.present? && comment.user_id == current_user.id %>
+          <small><%= link_to "Delete", idea_comment_path(@idea, comment), method: :delete %></small>
+        <% end %>
+      </p>
     <% end %>
 
   </div>
