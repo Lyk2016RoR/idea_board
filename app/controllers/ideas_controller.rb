@@ -3,6 +3,10 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :update, :edit, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
+  def mine
+    @ideas = current_user.ideas
+  end
+
   def new
     @idea = Idea.new
     load_form_data
