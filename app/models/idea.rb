@@ -22,7 +22,8 @@ class Idea < ApplicationRecord
   has_and_belongs_to_many :tags
 
   def average_rating
-    votes.average(:rating).to_s
+    rating = votes.average(:rating)
+    rating ? rating.to_s : "0.0"
   end
 
   def self.random_ideas
