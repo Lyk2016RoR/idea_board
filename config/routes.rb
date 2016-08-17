@@ -10,5 +10,9 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :update]
   end
 
-  resources :categories, only: [:show, :index]
+  resources :categories, only: [:show, :index] do
+    member do
+      get :top_ideas
+    end
+  end
 end

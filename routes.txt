@@ -29,5 +29,6 @@ cancel_user_registration GET    /users/cancel(.:format)                devise/re
                          PATCH  /ideas/:id(.:format)                   ideas#update
                          PUT    /ideas/:id(.:format)                   ideas#update
                          DELETE /ideas/:id(.:format)                   ideas#destroy
+      top_ideas_category GET    /categories/:id/top_ideas(.:format)    categories#top_ideas
               categories GET    /categories(.:format)                  categories#index
                 category GET    /categories/:id(.:format)              categories#show
