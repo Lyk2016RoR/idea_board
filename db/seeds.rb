@@ -7,13 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Creating seed data..."
 
-u = User.create(email: "admin@admin.com", password: 123456)
+u = User.create(email: "admin@admin.com", password: "123456")
 
 c1 = Category.create(title: "Genel", desc: 'Genel kategorimiz burasıdır.', color: 'red')
 c2 = Category.create(title: "RoR", desc: 'Ruby on Rails ile ilgili fikirlerin bulunduğu kategorimiz.', color: 'green')
 
-Idea.create(title: 'Züper Fikir', description: 'Über Züper Fikir', category: c1, user: u)
-Idea.create(title: 'Süper Fikir!', description: 'Bence bilişim terimleri tekrar düzenlensin.', category_id: c1.id, user: u)
-Idea.create(title: 'Deneme Fikir', description: 'Test descriptionım.', category: c2, user: u)
+%w{software internet desktop hardware iot healt}.each { |tag| Tag.create name: tag }
+
+Idea.create(title: 'Züper Fikir', description: 'Über Züper Fikir', category: c1, user: u, tag_ids: (1..6).to_a.sample(rand(1..6)) )
+Idea.create(title: 'Süper Fikir!', description: 'Bence bilişim terimleri tekrar düzenlensin.', category_id: c1.id, user: u, tag_ids: (1..6).to_a.sample(rand(1..6)))
+Idea.create(title: 'Deneme Fikir', description: 'Test descriptionım.', category: c2, user: u, tag_ids: (1..6).to_a.sample(rand(1..6)))
 
 puts "Seed data created"
