@@ -125,14 +125,9 @@
               </div>
               <div id="tags" class="nav-section">
                 <h3>Etiketler</h3>
-                <a href="#" class="label label-default">Etiket 1</a>
-                <a href="#" class="label label-default">Etiket 2</a>
-                <a href="#" class="label label-default">Etiket 3</a>
-                <a href="#" class="label label-default">Etiket 4</a>
-                <a href="#" class="label label-default">Etiket 5</a>
-                <a href="#" class="label label-default">Etiket 6</a>
-                <a href="#" class="label label-default">Etiket 7</a>
-                <a href="#" class="label label-default">Etiket 4</a>
+                <% @sidebar_tags.each do |t| %>
+                  <a href="#" class="label label-default"><%= t.name %></a>
+                <% end %>
               </div>
             </div>
           </div>
