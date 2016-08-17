@@ -1,11 +1,13 @@
-<%= form_for [@idea, @vote] do |f| %>
-  <% 5.times do |i| %>
-    <%= f.radio_button :rating, i+1 %>
-    <% (i+1).times do %>
-      <i class='fa fa-star'></i>
+<% if current_user.present? %>
+  <%= form_for [@idea, @vote] do |f| %>
+    <% 5.times do |i| %>
+      <%= f.radio_button :rating, i+1 %>
+      <% (i+1).times do %>
+        <i class='fa fa-star'></i>
+      <% end %>
+      <br />
     <% end %>
-    <br />
-  <% end %>
 
-  <%= f.submit "Vote", class: "btn btn-sm btn-primary" %>
+    <%= f.submit "Vote", class: "btn btn-sm btn-primary" %>
+  <% end %>
 <% end %>
