@@ -59,3 +59,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'rails_12factor'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-rails', '~> 4.6'

@@ -10,6 +10,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @random_ideas = Idea.random_ideas
   end
 
   def show

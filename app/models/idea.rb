@@ -25,6 +25,10 @@ class Idea < ApplicationRecord
     votes.average(:rating).to_s
   end
 
+  def self.random_ideas
+    self.order("RANDOM()").all
+  end
+
   private
 
     def check_planned_to
