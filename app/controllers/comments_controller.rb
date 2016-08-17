@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      CommentMailer.new_comment(@idea).deliver_now
       redirect_to @idea, notice: "Comment was saved"
     else
       redirect_to @idea, notice: "Comment couldn't saved"

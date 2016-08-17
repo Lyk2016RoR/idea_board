@@ -21,5 +21,8 @@ module IdeaBoard
         request_specs: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    config.action_mailer.default_url_options = { host: 'lyk2016.com' }
+    config.action_mailer.asset_host = 'http://lyk2016.com'
   end
 end
