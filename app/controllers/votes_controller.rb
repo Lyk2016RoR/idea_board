@@ -6,6 +6,7 @@ class VotesController < ApplicationController
 
   def create
     @vote = @idea.votes.new
+    redirect_to @idea, notice: "Vote is not valid." and return if params[:vote].nil?
     @vote.rating = params[:vote][:rating]
     @vote.user = current_user
 
